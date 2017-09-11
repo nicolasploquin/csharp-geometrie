@@ -7,6 +7,17 @@ namespace Eni.Geometrie
         public Point Origine { get; set; }
         public Point Destination { get; set; }
 
+        public double Longueur
+        {
+            get
+            {
+                return Math.Sqrt(
+                    (Destination.X - Origine.X) * (Destination.X - Origine.X)
+                    + (Destination.Y - Origine.Y) * (Destination.Y - Origine.Y)
+                );
+            }
+        }
+
         public Segment()
         {
 
@@ -26,7 +37,7 @@ namespace Eni.Geometrie
 
         public override string ToString()
         {
-            return String.Format("Segment[{0},{1}]", Origine, Destination);
+            return String.Format("Segment[{0};{1};l={2}]", Origine, Destination, Longueur);
         }
 
     }

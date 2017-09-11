@@ -26,12 +26,12 @@ namespace Eni.Geometrie
 
             Point3D p5 = (Point3D)p4;
 
-            Point[] tab = { p1, p2, p3, p4 };
+            //Point[] tab = { p1, p2, p3, p4 };
 
-            foreach (Point p in tab)
-            {
-                Console.WriteLine(p);
-            }
+            //foreach (Point p in tab)
+            //{
+            //    Console.WriteLine(p);
+            //}
 
             Console.WriteLine(p1);
 
@@ -48,9 +48,18 @@ namespace Eni.Geometrie
 
             Console.WriteLine(s1);
 
+            Carre ca1 = new Carre(p1, 5.0);
+            Cercle ce1 = new Cercle(p2, 5.0);
+            Triangle tri1 = new Triangle(p2, s1);
+            Triangle tri2 = new Triangle(new Point(2.0,0.0), new Segment(new Point(0.0, 2.0), new Point(2.0, 2.0)));
 
+            Figure[] tab = { ca1, ce1, tri1, tri2 };
+            foreach (Figure fig in tab)
+            {
+                Console.WriteLine(fig);
+            }
 
-
+            Console.WriteLine(ca1);
 
             Console.ReadLine();
         }
