@@ -12,12 +12,26 @@ namespace Eni.Geometrie
         {
             Console.WriteLine("Mon premier programme C# !");
 
+            Point.DefinirCadre(-50.0, -50.0, 50.0, 50.0);
+
             Point p1 = new Point();
             p1.X = 1.0;
             p1.Y = 2.0;
 
             Point p2 = new Point(2.0, 4.0);
-            Point p3 = new Point3D(3.0,6.0,9.0);
+            Point p3 = new Point3D(3.0, 6.0, 9.0);
+            Point p4 = new Point3D(4.0, 6.0, 9.0);
+
+            Console.WriteLine(p4.ToString());
+
+            Point3D p5 = (Point3D)p4;
+
+            Point[] tab = { p1, p2, p3, p4 };
+
+            foreach (Point p in tab)
+            {
+                Console.WriteLine(p);
+            }
 
             Console.WriteLine(p1);
 
