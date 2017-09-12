@@ -2,25 +2,22 @@
 
 namespace Eni.Geometrie
 {
-    public class Point : IAffichable
+    public class Point : IAffichable, ICloneable
     {
         // public const int NOMBRE = 12;
 
-        public static double Haut { get; private set; } = -100.0;
-        public static double Droite { get; private set; } = 100.0;
-        public static double Bas { get; private set; } = 100.0;
-        public static double Gauche { get; private set; } = -100.0;
-
         private double _x = 0.0;
         private double _y = 0.0;
+
+        private Dessin dessin = Dessin.Instance;
 
         public double X
         {
             get { return _x; }
             set
             {
-                if (value < Point.Gauche) _x = Point.Gauche;
-                else if (value > Point.Droite) _x = Point.Droite;
+                if (value < dessin.Gauche) _x = dessin.Gauche;
+                else if (value > dessin.Droite) _x = dessin.Droite;
                 else _x = value;
             }
         }
@@ -29,8 +26,8 @@ namespace Eni.Geometrie
             get { return _y; }
             set
             {
-                if (value < Point.Haut) _y = Point.Haut;
-                else if (value > Point.Bas) _y = Point.Bas;
+                if (value < dessin.Haut) _y = dessin.Haut;
+                else if (value > dessin.Bas) _y = dessin.Bas;
                 else _y = value;
             }
         }
@@ -46,22 +43,6 @@ namespace Eni.Geometrie
         {
             this.X = x;
             this.Y = y;
-        }
-
-        public static void DefinirCadre(double gauche, double haut, double droite, double bas)
-        {
-            Gauche = gauche;
-            Haut = haut;
-            Droite = droite;
-            Bas = bas;
-        }
-
-        public static void DefinirCadre(Point hautGauche, Point droiteBas)
-        {
-            Gauche = hautGauche.X;
-            Haut = hautGauche.Y;
-            Droite = droiteBas.X;
-            Bas = droiteBas.Y;
         }
 
 
@@ -80,6 +61,11 @@ namespace Eni.Geometrie
         public void Afficher()
         {
             Console.WriteLine("Ceci est un point : {0}", this);
+        }
+
+        public object Clone()
+        {
+            return new Point(this.X,this.Y);
         }
     }
 }

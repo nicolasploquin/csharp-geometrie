@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{308E02BA-D112-4ACD-A088-13539AF3AB81}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>csharp_geometrie</RootNamespace>
+    <RootNamespace>Eni.Geometrie</RootNamespace>
     <AssemblyName>csharp-geometrie</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -44,7 +44,10 @@
   <ItemGroup>
     <Compile Include="Carre.cs" />
     <Compile Include="Cercle.cs" />
+    <Compile Include="Dessin.cs" />
     <Compile Include="Figure.cs" />
+    <Compile Include="FigureBuilder.cs" />
+    <Compile Include="FigureType.cs" />
     <Compile Include="IAffichable.cs" />
     <Compile Include="IAfficher.cs" />
     <Compile Include="Point.cs" />

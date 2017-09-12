@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Eni.Geometrie
 {
@@ -10,7 +11,7 @@ namespace Eni.Geometrie
         {
             Console.WriteLine("Mon premier programme C# !");
 
-            Point.DefinirCadre(-50.0, -50.0, 50.0, 50.0);
+            Dessin.Instance.DefinirCadre(-50.0, -50.0, 50.0, 50.0);
 
             Point p1 = new Point();
             p1.X = 1.0;
@@ -22,7 +23,7 @@ namespace Eni.Geometrie
 
             Console.WriteLine(p4.ToString());
 
-            Point3D p5 = (Point3D)p4;
+            Point p5 = (Point)p2.Clone();
 
             //Point[] tab = { p1, p2, p3, p4 };
 
@@ -76,6 +77,35 @@ namespace Eni.Geometrie
             {
                 chose.Afficher();
             }
+
+
+            Console.WriteLine(" --- Design Pattern Builder --- ");
+
+            Figure fig3 = new FigureBuilder()
+                .SetType(FigureType.CARRE)
+                .AddPoint(p1)
+                .SetLength(3.0)
+                .Build();
+
+            Figure fig4 = new FigureBuilder()
+                .SetType(FigureType.TRIANGLE)
+                .AddPoint(p1)
+                .AddPoint(p2)
+                .AddPoint(p3)
+                .Build();
+
+            FigureBuilder builder2 = new FigureBuilder(FigureType.CARRE);
+
+            String str = new StringBuilder("test")
+                .Append("A")
+                .Append(123)
+                .Append("B")
+                .ToString();
+
+
+            Console.WriteLine(fig3);
+            Console.WriteLine(fig4);
+            Console.WriteLine(str);
 
             Console.ReadLine();
         }

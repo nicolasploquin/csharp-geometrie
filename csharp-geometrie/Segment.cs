@@ -2,7 +2,7 @@
 
 namespace Eni.Geometrie
 {
-    class Segment
+    class Segment : ICloneable
     {
         public Point Origine { get; set; }
         public Point Destination { get; set; }
@@ -40,5 +40,9 @@ namespace Eni.Geometrie
             return String.Format("Segment[{0};{1};l={2}]", Origine, Destination, Longueur);
         }
 
+        public object Clone()
+        {
+            return new Segment((Point)this.Origine.Clone(), (Point)this.Destination.Clone());
+        }
     }
 }
