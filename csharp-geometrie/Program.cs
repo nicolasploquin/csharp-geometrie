@@ -54,12 +54,30 @@ namespace Eni.Geometrie
             Triangle tri2 = new Triangle(new Point(2.0,0.0), new Segment(new Point(0.0, 2.0), new Point(2.0, 2.0)));
 
             Figure[] tab = { ca1, ce1, tri1, tri2 };
+            List<Figure> liste = tab.ToList<Figure>();
+            Console.WriteLine(" --- tab --- ");
             foreach (Figure fig in tab)
+            {
+                Console.WriteLine(fig);
+            }
+            liste.Sort();
+            Console.WriteLine(" --- liste triée --- ");
+           foreach (Figure fig in liste)
             {
                 Console.WriteLine(fig);
             }
 
             Console.WriteLine(ca1);
+
+
+            p1.Afficher();
+            ce1.Afficher();
+
+            IAffichable[] listeDeChosesAffichables = { p1, ce1};
+            foreach (IAffichable chose in listeDeChosesAffichables)
+            {
+                chose.Afficher();
+            }
 
             Console.ReadLine();
         }

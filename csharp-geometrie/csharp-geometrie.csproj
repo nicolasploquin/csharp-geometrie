@@ -45,6 +45,8 @@
     <Compile Include="Carre.cs" />
     <Compile Include="Cercle.cs" />
     <Compile Include="Figure.cs" />
+    <Compile Include="IAffichable.cs" />
+    <Compile Include="IAfficher.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Point3D.cs" />
     <Compile Include="Program.cs" />

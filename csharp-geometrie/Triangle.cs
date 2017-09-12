@@ -7,18 +7,30 @@ namespace Eni.Geometrie
         public Point Sommet { get; set; }
         public Segment Base { get; set; }
 
-        public override double Perimetre => 
-            Base.Longueur 
-            + new Segment(Base.Origine, Sommet).Longueur 
-            + new Segment(Base.Destination,Sommet).Longueur;
+        public override double Perimetre
+        {
+            get
+            {
+                return Base.Longueur
+                        + new Segment(Base.Origine, Sommet).Longueur
+                        + new Segment(Base.Destination, Sommet).Longueur;
+            }
+        }
+           
 
         /** 
          * par déterminant de deux vecteurs : abs| (xb-xa)*(yc-ya) - (xc-xa)*(yb-ya) | / 2 
          * a sommet ; b base origine ; c base destination
          */
-        public override double Aire => 
-            Math.Abs( (Base.Origine.X - Sommet.X) * (Base.Destination.Y - Sommet.Y)
-            - (Base.Destination.X - Sommet.X) * (Base.Origine.Y - Sommet.Y) ) / 2.0;
+        public override double Aire
+        {
+            get
+            {
+                return Math.Abs((Base.Origine.X - Sommet.X) * (Base.Destination.Y - Sommet.Y)
+                      - (Base.Destination.X - Sommet.X) * (Base.Origine.Y - Sommet.Y)) / 2.0;
+            }
+        }
+            
 
         public Triangle()
         {

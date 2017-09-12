@@ -2,8 +2,9 @@
 
 namespace Eni.Geometrie
 {
-    public class Point
+    public class Point : IAffichable
     {
+        // public const int NOMBRE = 12;
 
         public static double Haut { get; private set; } = -100.0;
         public static double Droite { get; private set; } = 100.0;
@@ -75,7 +76,10 @@ namespace Eni.Geometrie
         {
             return String.Format("Point({0:F1};{1:F1})", this.X, this.Y);
         }
-       
 
+        public void Afficher()
+        {
+            Console.WriteLine("Ceci est un point : {0}", this);
+        }
     }
 }
