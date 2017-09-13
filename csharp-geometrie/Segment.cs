@@ -1,5 +1,6 @@
 ﻿using Eni.Util;
 using System;
+using System.ComponentModel;
 
 namespace Eni.Geometrie
 {
@@ -7,6 +8,7 @@ namespace Eni.Geometrie
     {
         private Point _origine;
         private Point _destination;
+
 
         public Point Origine
         {
