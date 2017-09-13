@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Eni.Util;
+using System;
+using System.Collections.Generic;
 
 namespace Eni.Geometrie
 {
-    public class Point : IAffichable, ICloneable
+    public class Point : Observable, IAffichable, ICloneable
     {
         // public const int NOMBRE = 12;
 
@@ -19,8 +21,10 @@ namespace Eni.Geometrie
                 if (value < dessin.Gauche) _x = dessin.Gauche;
                 else if (value > dessin.Droite) _x = dessin.Droite;
                 else _x = value;
+                NotifyAll();
             }
         }
+
         public double Y
         {
             get { return _y; }
@@ -29,10 +33,9 @@ namespace Eni.Geometrie
                 if (value < dessin.Haut) _y = dessin.Haut;
                 else if (value > dessin.Bas) _y = dessin.Bas;
                 else _y = value;
+                NotifyAll();
             }
         }
-
-
 
         public Point()
         {
@@ -67,5 +70,6 @@ namespace Eni.Geometrie
         {
             return new Point(this.X,this.Y);
         }
+
     }
 }

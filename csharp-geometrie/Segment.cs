@@ -1,11 +1,38 @@
-﻿using System;
+﻿using Eni.Util;
+using System;
 
 namespace Eni.Geometrie
 {
-    class Segment : ICloneable
+    public class Segment : ICloneable, IObserver
     {
-        public Point Origine { get; set; }
-        public Point Destination { get; set; }
+        private Point _origine;
+        private Point _destination;
+
+        public Point Origine
+        {
+            get
+            {
+                return _origine;
+            }
+            set
+            {
+                _origine = value;
+                _origine.Subscribe(this);
+            }
+        }
+
+        public Point Destination
+        {
+            get
+            {
+                return _destination;
+            }
+            set
+            {
+                _destination = value;
+                _destination.Subscribe(this);
+            }
+        }
 
         public double Longueur
         {
@@ -44,5 +71,11 @@ namespace Eni.Geometrie
         {
             return new Segment((Point)this.Origine.Clone(), (Point)this.Destination.Clone());
         }
+
+        public void Update()
+        {
+            Console.WriteLine("Segment modifié : {0}", this);
+        }
+
     }
 }

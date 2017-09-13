@@ -43,6 +43,8 @@ namespace Eni.Geometrie
 
             Console.WriteLine(s1);
 
+            Console.WriteLine(" --- Déplacement du segment --- ");
+
             s1.Deplacer(3.0, 5.0);
 
             Console.WriteLine(s1);
@@ -102,6 +104,15 @@ namespace Eni.Geometrie
                 .Append("B")
                 .ToString();
 
+
+            Carre ca2 = new CarreBuilder()
+                .SetOrigine(p1)
+                .SetCote(6.0)
+                .Build();
+
+            Carre ca3 = new CarreBuilder()
+                .LoadCSV("carre.csv")
+                .Build();
 
             Console.WriteLine(fig3);
             Console.WriteLine(fig4);
